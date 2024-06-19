@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        
+
+
+        .about-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .about-link a {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .about-link a:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Página Principal</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="http://localhost:8000">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="http://localhost:8000/about">Acerca de</a></li>
+            <li><a href="#">Contacto</a></li>
+            <!-- Nuevo elemento para el botón de Admin -->
+            <li><a href="http://localhost:8000/admin">Admin</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Bienvenido a mi Página Principal</h2>
+        <p>¡Explora nuestro sitio para descubrir más!</p>
+        <div class="about-link">
+            <a href="http://localhost:8000/about">Saber más sobre nosotros</a>
+        </div>
+        <div>
+            <h6></h6>
+        </div>
+    </section>
+    <table class="w-full border-collapse border border-gray-300">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="border border-gray-300 px-4 py-2">Nombre</th>
+                <th class="border border-gray-300 px-4 py-2">Número</th>
+                <th class="border border-gray-300 px-4 py-2">Coleccion</th>
+                <th class="border border-gray-300 px-4 py-2">Backlight</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for funko in funkos %}
+            <tr class="bg-white">
+                <td class="border border-gray-300 px-4 py-2">{{funko.name}}</td>
+                <td class="border border-gray-300 px-4 py-2">{{funko.number}}</td>
+                <td  class="border border-gray-300 px-4 py-2">{{funko.collection}}</td>
+                <td class="border border-gray-300 px-4 py-2">{% if funko.is_backlight %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <footer>
+        <p>Derechos Reservados &copy; 2024</p>
+    </footer>
+</body>
+
+</html>

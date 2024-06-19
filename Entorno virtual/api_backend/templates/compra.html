@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            width: 100%;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .button-container button {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button-container button:hover {
+            background-color: #ddd;
+        }
+
+        #content {
+            width: 80%;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-buttons {
+            position: fixed;
+            bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        Gestión de Compras
+    </header>
+    <main>
+        <div class="button-container">
+            <button>New Cliente</button>
+            <button>New Pedido</button>
+            <button>New Producto</button>
+            <button><a href="{% url 'clientes' %}">Listar Clientes</a></button>
+            <button><a href="{% url 'productos' %}">Listar Productos</a></button>
+            <button><a href="{% url 'pedidos' %}">Listar Pedidos</a></button>
+        </div>
+        <div id="content">
+            <p>Selecciona una opción para cargar el contenido.</p>
+        </div>
+    </main>
+    <div class="footer-buttons">
+        <button><a href="{% url 'clientes_rest' %}">Cliente REST</a></button>
+        <button><a href="{% url 'pedidos_rest' %}">Pedido REST</a></button>
+        <button><a href="{% url 'productos_rest' %}">Producto REST</a></button>
+    </div>
+
+</body>
+
+</html>
